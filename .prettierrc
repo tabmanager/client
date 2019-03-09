@@ -1,11 +1,11 @@
 {
   "printWidth": 80,
+  "semi": false,
   "singleQuote": true,
   "trailingComma": "none",
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
-  "parser": "babylon",
-  "semi": false,
+  "parser": "babel",
   "requirePragma": false,
   "proseWrap": "preserve",
   "arrowParens": "avoid"
