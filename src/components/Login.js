@@ -20,7 +20,7 @@ class Login extends React.Component {
         this.modalToggle = this.modalToggle.bind(this);
     }
   modalToggle(){ 
-    this.setState({
+    this.setState({ 
         modal: !this.state.modal
     })
   }

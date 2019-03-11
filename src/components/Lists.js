@@ -12,4 +12,4 @@ class Lists extends Component {
   }
 }
 
-export default Lists;
+export default Lists; 

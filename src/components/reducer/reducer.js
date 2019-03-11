@@ -13,9 +13,9 @@ const initialState = {
     errorStatusCode: null,
     fetchingLists: false,
     token: localStorage.getItem('token')
-};
+}; 
 
-// ---
+// --- 
 
   export const reducer = (state = initialState, action) => {
     switch (action.type) {
