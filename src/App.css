@@ -50,12 +50,12 @@
 }
 
 .login-one {
-    background-image: url(./assets/tab2.png);
+    background-image: url(./assets/tab5.png);
     background-position: 50% 50%;
 }
 
 .login-two {
-    background-image: url(./assets/tab4.png);
+    background-image: url(./assets/darktab1.png);
     background-position: 50% 50%;
 }
 
@@ -65,12 +65,12 @@
 }
 
 .login-four {
-    background-image: url(./assets/tab1.png);
+    background-image: url(./assets/darktab3.png);
     background-position: 50% 50%;
 }
 
 .login-five {
-    background-image: url(./assets/tab5.png);
+    background-image: url(./assets/darktab2.png);
     background-position: 50% 50%;
 }
 

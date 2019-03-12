@@ -31,8 +31,9 @@ class Login extends React.Component {
     e.preventDefault()
     axios.post('https://tab-manager.herokuapp.com/api/login', {username: this.state.username, password: this.state.password})
     .then(res => {
-        console.log(res)
+        console.log(res.data)
         localStorage.setItem("token", res.data.token)
+        localStorage.setItem("user_id", res.data.user_id)
     })
   };
   register = e => {
@@ -66,7 +67,7 @@ class Login extends React.Component {
                 onChange={this.handleChange}
                 className="login-input"
             />
-            <div className="flex-spacer" />
+            <div />
             {this.props.error && <p className="error">{this.props.error}</p>}
             <div className="login-button-wrapper">
                 <p>need an account?</p>
@@ -90,7 +91,7 @@ class Login extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.modalToggle} className="sign-up">
           <ModalHeader toggle={this.modalToggle}>"Sign Up"</ModalHeader>
           <ModalBody>
-            <div>Sing Up Form</div>
+            <div>Sign Up Form</div>
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.modalToggle}>Do Something</Button>{' '}

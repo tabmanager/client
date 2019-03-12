@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom';
 import './App.css'
 import Login from './components/Login'
 import Lists from './components/Lists'
+import List from './components/List'
 import PrivateRoute from './components/PrivateRoute'
 
 class App extends Component {
@@ -12,7 +13,12 @@ class App extends Component {
         <div className="App">
           <p>Hello World</p> 
           <Route path="/login" component={Login} />
-          <PrivateRoute exact path="/lists" component={Lists} />
+          <Route path="/tabs/:id" render={props => (
+          <List
+          {...props}
+          />
+          )}/>
+          <PrivateRoute exact path="/tabs" component={Lists} />
         </div>
     );
   }
