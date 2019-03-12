@@ -2,7 +2,6 @@
 import axios from 'axios';
 
 import axiosWithAuth from '../../axiosWithAuth';
-import { bindActionCreators } from '../../../../../../AppData/Local/Microsoft/TypeScript/3.3/node_modules/redux';
 
 // ---
 
