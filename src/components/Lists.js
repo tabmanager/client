@@ -119,3 +119,4 @@ export default connect(
       deleteList
     }
 )(Lists);  
+

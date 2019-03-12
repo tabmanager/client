@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 import axiosWithAuth from '../../axiosWithAuth';
@@ -22,6 +21,7 @@ export const login = creds => dispatch => {
 export const FETCH_LISTS_START = 'FETCH_LISTS_START';
 export const FETCH_LISTS_SUCCESS = 'FETCH_LISTS_SUCCESS';
 export const FETCH_LISTS_FAILURE = 'FETCH_DATA_FAILURE';
+
 
 export const fetchLists = (user_id) => dispatch => {
   dispatch({ type: FETCH_LISTS_START });
@@ -57,7 +57,6 @@ export const addList = newList => dispatch => {
       });
 }
 
-
 // ---
 
 export const DELETE_START = 'DELETE_START';
@@ -75,6 +74,7 @@ export const deleteList = id => dispatch => {
       console.log(err);
     });
 };
+
 
 // if (err.response.status === 403) {
 //     dispatch({ type: FETCH_LISTS_FAILURE, payload: err.response });

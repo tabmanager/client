@@ -20,12 +20,14 @@ const initialState = {
     fetchingLists: false,
     token: localStorage.getItem('token'),
     user_id: localStorage.getItem('user_id')
+
 }; 
 
 // --- 
 
   export const reducer = (state = initialState, action) => {
     switch (action.type) {
+
       case LOGIN_START:
       return {
         ...state,
