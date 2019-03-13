@@ -27,11 +27,11 @@ class Login extends React.Component {
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
-  componentDidMount(){
-    if (this.props.user_id.length > 0 && this.props.token.length > 0){
-      this.props.history.push('/tabs');
-    }
-  }
+  // componentDidMount(){
+  //   if (this.props.user_id.length > 0 && this.props.token.length > 0){
+  //     this.props.history.push('/tabs');
+  //   }
+  // }
   modalToggle() {
     this.setState({
       modal: !this.state.modal
