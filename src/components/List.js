@@ -29,14 +29,22 @@ class List extends React.Component {
     return (
       <div className="list-wrapper">
         {this.props.tabs.map((tab, i) => (
-          <Card key={i}>
-            <CardHeader />
+          <Card className="tabs" key={i}>
+            <CardHeader className="cap">
+            <img className="fav" src={tab.favicon} alt="website logo"/>
+            <p>{tab.date}</p>
+            </CardHeader>
             <CardBody>
               <CardTitle>{tab.title}</CardTitle>
-              <CardText />
-              <Button>Delete</Button>
+              <CardText>
+                <a href={tab.website}>{tab.website}</a>
+                <p>{tab.short_description}</p>
+              </CardText>
             </CardBody>
-            <CardFooter />
+            <CardFooter className="cap">
+            <i class="fas fa-trash-alt" onClick={() => this.props.deleteList(tab.id)}></i>
+            <i class="fas fa-edit"></i>
+            </CardFooter>
           </Card>
         ))}
       </div>

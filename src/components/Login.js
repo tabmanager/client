@@ -22,7 +22,8 @@ class Login extends React.Component {
     super()
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      email: '',
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
@@ -87,7 +88,7 @@ class Login extends React.Component {
             <div />
             {this.props.error && <p className="error">{this.props.error}</p>}
             <div className="login-button-wrapper">
-              <p>need an account?</p>
+              <p onClick={this.modalToggle}>need an account?</p>
               <Button>
                 {this.props.loggingIn ? (
                   <Loader
@@ -117,13 +118,37 @@ class Login extends React.Component {
             toggle={this.modalToggle}
             className="sign-up"
           >
-            <ModalHeader toggle={this.modalToggle}>"Sign Up"</ModalHeader>
+            <ModalHeader toggle={this.modalToggle}>it's alaways thursday</ModalHeader>
             <ModalBody>
-              <div>Sign Up Form</div>
+            <Input
+              type="text"
+              name="username"
+              placeholder="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+              className="login-input"
+            />
+            {/* <Label for="password">Password</Label> */}
+            <Input
+              type="password"
+              name="password"
+              placeholder="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              className="login-input"
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              className="login-input"
+            />
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={this.modalToggle}>
-                Do Something
+                go tabless
               </Button>{' '}
               <Button color="secondary" onClick={this.modalToggle}>
                 Cancel
