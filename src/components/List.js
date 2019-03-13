@@ -35,20 +35,24 @@ class List extends React.Component {
         {this.props.tabs.map((tab, i) => (
           <Card className="tabs" key={i}>
             <CardHeader className="cap">
-            <img className="fav" src={tab.favicon} alt="website logo"/>
-            <p>{tab.date}</p>
+              <img className="fav" src={tab.favicon} alt="website logo" />
+              <p>{tab.date}</p>
             </CardHeader>
             <CardBody className="card-body">
               <CardTitle>{tab.title}</CardTitle>
               <CardText>
-                <a href={tab.website} target="_blank">{tab.website}</a>
-                <p>{tab.short_description}</p>
+                <a href={tab.website} target="_blank">
+                  {tab.website}
+                </a>
+                <br />
+                <br />
+                <span>{tab.short_description}</span>
               </CardText>
             </CardBody>
-            <EditList 
-            tab={tab}
-            deleteList={this.props.deleteList}
-            fetchLists={this.props.fetchLists}
+            <EditList
+              tab={tab}
+              deleteList={this.props.deleteList}
+              fetchLists={this.props.fetchLists}
             />
           </Card>
         ))}
