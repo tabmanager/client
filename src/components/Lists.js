@@ -136,7 +136,7 @@ class Lists extends Component {
               <Input
                 type="text"
                 name="category"
-                placeholder="category"
+                placeholder="don't make a mess—categorize your link!"
                 value={this.state.newList.category}
                 onChange={this.handleChange}
                 className="login-input"

@@ -41,8 +41,10 @@ class List extends React.Component {
             <CardBody className="card-body">
               <CardTitle>{tab.title}</CardTitle>
               <CardText>
-                <a href={tab.website} target="_blank">{tab.website}</a>
-                <p>{tab.short_description}</p>
+                <a href={tab.website} target="_blank" rel="noopener noreferrer">{tab.website}</a>
+                <br />
+                <br />
+                <span>{tab.short_description}</span>
               </CardText>
             </CardBody>
             <EditList 
