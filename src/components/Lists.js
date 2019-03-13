@@ -33,7 +33,8 @@ class Lists extends Component {
         website: '',
         short_description: '',
         category: '',
-        date: ''
+        date: '',
+        user_id: this.props.user_id
       }
     }
     this.modalToggle = this.modalToggle.bind(this)
