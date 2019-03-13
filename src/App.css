@@ -1,0 +1,77 @@
+
+.App {
+    display: flex; 
+    flex-wrap: wrap
+}
+
+/* --- Login Page --- */
+
+.login-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.login-div {
+    width: 500px;
+    height:500px;
+}
+
+.login-form-wrapper {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    width: 350px;
+    height: 450px;
+    margin-top: 20px;
+    box-shadow: 10px 11px 28px 0px rgba(0,0,0,0.75);
+    background-color: #ECF0F1;
+    padding: 20px;
+    padding-top: 90px;
+
+}
+
+.login-input {
+    margin: 40px auto;
+    background-color: white;
+}
+
+.login-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.login-button-wrapper p {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.login-one {
+    background-image: url(./assets/tab5.png);
+    background-position: 50% 50%;
+}
+
+.login-two {
+    background-image: url(./assets/darktab1.png);
+    background-position: 50% 50%;
+}
+
+.login-three {
+    background-image: url(./assets/tab3.png);
+    background-position: 50% 50%;
+}
+
+.login-four {
+    background-image: url(./assets/darktab3.png);
+    background-position: 50% 50%;
+}
+
+.login-five {
+    background-image: url(./assets/darktab2.png);
+    background-position: 50% 50%;
+}
+
+
