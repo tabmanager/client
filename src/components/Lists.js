@@ -39,6 +39,7 @@ class Lists extends Component {
     this.modalToggle = this.modalToggle.bind(this)
   }
   componentDidMount() {
+    console.log(this.props.lists)
     const { user_id } = this.props
     this.props.fetchLists(user_id)
   }
@@ -58,28 +59,53 @@ class Lists extends Component {
   //  addList = e => {
   //     e.preventDefault();
   //     axiosWithAuth()
-  //       .post(`https://tab-manager.herokuapp.com/api/tabs`, {
-  //         title: '',
-  //         website: '',
-  //         short_description: '',
-  //         category: '',
-  //         date: '',
-  //       })
+  //       .post(`https://tab-manager.herokuapp.com/api/tabs`, this.state.newList)
   //       .then(res => {
-  //         console.log(res.data);
+  //         console.log(res)
+  //         if (Object.keys(this.props.state.lists).includes(this.action.payload.category)) {
+  //           return {
+  //             ...this.props.state,
+  //             lists: {
+  //               ...this.props.state.lists,
+  //               [this.action.payload.category]: [
+  //                 ...this.props.state.lists[this.action.payload.category],
+  //                 this.action.payload
+  //               ]
+  //             }
+  //           }
+  //         } else {
+  //           return {
+  //             ...this.props.state,
+  //             lists: {
+  //               ...this.props.state.lists,
+  //               [this.action.payload.category]: [this.action.payload]
+  //             }
+  //           }
+  //         }
   //       })
   //       .catch(err => {
   //         console.log(err);
   //       });
   // }
-  // addList() {
-  //   console.log(this.props.addList)
-  //   this.props.addList(this.state.newList)
+  addList() {
+    console.log(this.props.addList)
+    this.props.addList(this.state.newList)
+  }
+  // deleteList = id => {
+  //   const { user_id } = this.props
+  //   this.props.deleteList(id)
+  //   this.props.fetchLists(user_id)
   // }
   deleteList = id => {
-    const { user_id } = this.props
-    this.props.deleteList(id)
-    this.props.fetchLists(user_id)
+    axiosWithAuth()
+      .delete(`https://tab-manager.herokuapp.com/api/tabs/${id}`)
+      .then(res => {
+        console.log(res)
+        this.props.fetchLists(this.props.user_id)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
   render() {
     if (this.props.fetchingLists === true) {
@@ -148,7 +174,7 @@ class Lists extends Component {
               <Input
                 type="text"
                 name="category"
-                placeholder="category"
+                placeholder="don't make a mess—categorize your link!"
                 value={this.state.newList.category}
                 onChange={this.handleChange}
                 className="login-input"
