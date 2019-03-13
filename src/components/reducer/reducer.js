@@ -51,17 +51,24 @@ export const reducer = (state = initialState, action) => {
         fetchingLists: false,
         error: null
       }
-    case FETCH_LISTS_FAILURE:
+      case FETCH_LISTS_FAILURE:
       return {
         ...state,
         fetchingLists: false,
         error: action.payload
       }
+    // case ADD_LIST:
+    //   if (Object.keys(state.lists).includes(action.payload.category)) {
+    //     return {
+    //       ...state,
+    //       lists: [
+    //   }
+
     case ADD_LIST:
       if (Object.keys(state.lists).includes(action.payload.category)) {
         return {
           ...state,
-          lists: {
+          lists: {  
             ...state.lists,
             [action.payload.category]: [
               ...state.lists[action.payload.category],
@@ -78,6 +85,10 @@ export const reducer = (state = initialState, action) => {
           }
         }
       }
+
+
+
+
     case ADD_LIST_FAILURE:
       return {
         ...state,

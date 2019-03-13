@@ -37,19 +37,31 @@ i {
     height: 450px;
     margin-top: 120px;
     box-shadow: 10px 11px 28px 0px rgba(0,0,0,0.75);
-    background-color: #ECF0F1;
+    background-color: #ecf0f1;
+    /* background-color: #ECF0F1; */
     padding: 20px;
-    padding-top: 90px;
+    padding-top: 10px;
     z-index: 1;
 }
 
+.logo-tt {
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    background-image: url('./assets/logo-tt.png');
+    background-repeat: no-repeat;
+    position: 50% 50%
+}
+
 .login-input {
-    margin: 40px auto;
+    height: 50px;
+    margin-bottom: 5px;
     background-color: white;
 }
 
 .login-button-wrapper {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
 }
 
@@ -60,6 +72,10 @@ i {
 .login-button-wrapper p {
     margin-top: 10px;
     margin-right: 10px;
+}
+
+.login-button {
+ 
 }
 
 .login-one {

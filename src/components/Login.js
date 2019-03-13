@@ -74,6 +74,7 @@ class Login extends React.Component {
         <div className="login-form-wrapper">
           <Form className="login-form" onSubmit={this.login}>
             {/* <Label for="username">username</Label> */}
+            <div className="logo-tt"></div>
             <Input
               type="text"
               name="username"
@@ -95,7 +96,7 @@ class Login extends React.Component {
             {this.props.error && <p className="error">{this.props.error}</p>}
             <div className="login-button-wrapper">
               <p onClick={this.modalToggle}>need an account?</p>
-              <Button>
+              <Button className="login-button">
                 {this.props.loggingIn ? (
                   <Loader
                     type="ThreeDots"
