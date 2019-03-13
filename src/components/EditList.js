@@ -48,10 +48,11 @@ class EditList extends React.Component {
           .put(`https://tab-manager.herokuapp.com/api/tabs/${id}`, editList)
           .then(res => {
             console.log(res);
+            window.location.reload()
             })
           .catch(err => {
             console.log(err)
-            });
+            })
     }
     render(){
         return (

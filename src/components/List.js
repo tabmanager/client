@@ -48,6 +48,7 @@ class List extends React.Component {
             <EditList 
             tab={tab}
             deleteList={this.props.deleteList}
+            fetchLists={this.props.fetchLists}
             />
           </Card>
         ))}

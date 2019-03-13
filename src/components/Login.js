@@ -27,6 +27,11 @@ class Login extends React.Component {
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
+  componentDidMount(){
+    if (this.props.user_id.length > 0 && this.props.token.length > 0){
+      this.props.history.push('/tabs');
+    }
+  }
   modalToggle() {
     this.setState({
       modal: !this.state.modal
@@ -48,6 +53,7 @@ class Login extends React.Component {
         console.log(res.data)
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('user_id', res.data.user_id)
+        this.props.history.push('/tabs');
       })
   }
   register = e => {
@@ -161,9 +167,11 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = ({ error, loggingIn }) => ({
-  error,
-  loggingIn
+const mapStateToProps = ({ error, loggingIn, token, user_id }) => ({
+  token,
+  user_id
+  // error,
+  // loggingIn
 })
 
 export default connect(
@@ -171,58 +179,3 @@ export default connect(
   { login }
 )(Login)
 
-// --- possible structure change
-
-// class Login extends React.Component {
-//     constructor(){
-//         super();
-//         this.state= {
-//             credentials: {
-//               username: '',
-//               password: ''
-//             },
-//             modal: false
-//         }
-//         this.modalToggle = this.modalToggle.bind(this);
-//     }
-//   modalToggle(){
-//     this.setState({
-//         modal: !this.state.modal
-//     })
-//   }
-//   handleChange = e => {
-//     this.setState({
-//       credentials: {
-//         ...this.state.credentials,
-//         [e.target.name]: e.target.value
-//       }
-//     });
-//   };
-//   login = e => {
-//     e.preventDefault();
-//     this.props
-//       .login(this.state.credentials)
-//       .then(() => this.props.history.push('/'));
-//   };
-
-// submitHandler = event => {
-//     this.setState({isLoading: true})
-//     event.preventDefault();
-//     axios.post(`https://guidr2.herokuapp.com/login`, this.state.user)
-//     .then(resp => {
-//         console.log("running token")
-//         localStorage.setItem('token', resp.data.token)
-//         this.setState({ isLoggedIn: true })
-//       })
-//     .then(() => {console.log("running token")
-//       return  this.state.isLoggedIn ? this.loginUserTest() : null
-//      } )
-//     .catch(function (error) {
-//         console.log(error);
-//   })}
-
-//   login = e => {
-//     e.preventDefault();
-//     this.props
-//       .login({username: this.state.username, password: this.state.password})
-//       .then(() => this.props.history.push('/lists'));
