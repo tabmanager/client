@@ -32,6 +32,7 @@ class List extends React.Component {
   render() {
     return (
       <div className="list-wrapper">
+        <h1>{this.props.category}</h1>
         {this.props.tabs.map((tab, i) => (
           <Card className="tabs" key={i}>
             <CardHeader className="cap">
@@ -41,7 +42,9 @@ class List extends React.Component {
             <CardBody className="card-body">
               <CardTitle>{tab.title}</CardTitle>
               <CardText>
-                <a href={tab.website} target="_blank" rel="noopener noreferrer">{tab.website}</a>
+                <a href={tab.website} target="_blank" rel="noopener noreferrer">
+                  {tab.website}
+                </a>
                 <br />
                 <br />
                 <span>{tab.short_description}</span>
