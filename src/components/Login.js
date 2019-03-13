@@ -53,7 +53,7 @@ class Login extends React.Component {
         console.log(res.data)
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('user_id', res.data.user_id)
-        this.props.history.push('/tabs');
+        this.props.history.push('/tabs')
       })
   }
   register = e => {
@@ -61,10 +61,13 @@ class Login extends React.Component {
     axios
       .post('https://tab-manager.herokuapp.com/api/register', {
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password,
+        email: this.state.email
       })
       .then(res => {
         console.log(res)
+        this.modalToggle();
+        this.props.history.push('/tabs')
       })
   }
   render() {
@@ -154,7 +157,7 @@ class Login extends React.Component {
             />
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" onClick={this.modalToggle}>
+              <Button color="primary" onClick={this.register}>
                 go tabless
               </Button>{' '}
               <Button color="secondary" onClick={this.modalToggle}>
