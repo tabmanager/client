@@ -13,11 +13,6 @@ class App extends Component {
         <div className="App">
           <p>Hello World</p> 
           <Route path="/login" component={Login} />
-          <Route path="/tabs/:id" render={props => (
-          <List
-          {...props}
-          />
-          )}/>
           <PrivateRoute exact path="/tabs" component={Lists} />
         </div>
     );

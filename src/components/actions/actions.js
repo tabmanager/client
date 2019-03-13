@@ -56,7 +56,6 @@ export const addList = newList => dispatch => {
       });
 }
 
-
 // ---
 
 export const DELETE_START = 'DELETE_START';
