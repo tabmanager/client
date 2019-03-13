@@ -16,6 +16,10 @@ import {
   CardText
 } from 'reactstrap'
 
+import EditList from './EditList'
+
+// ---
+
 class List extends React.Component {
   constructor(props) {
     super(props)
@@ -34,17 +38,17 @@ class List extends React.Component {
             <img className="fav" src={tab.favicon} alt="website logo"/>
             <p>{tab.date}</p>
             </CardHeader>
-            <CardBody>
+            <CardBody className="card-body">
               <CardTitle>{tab.title}</CardTitle>
               <CardText>
-                <a href={tab.website}>{tab.website}</a>
+                <a href={tab.website} target="_blank">{tab.website}</a>
                 <p>{tab.short_description}</p>
               </CardText>
             </CardBody>
-            <CardFooter className="cap">
-            <i class="fas fa-trash-alt" onClick={() => this.props.deleteList(tab.id)}></i>
-            <i class="fas fa-edit"></i>
-            </CardFooter>
+            <EditList 
+            tab={tab}
+            deleteList={this.props.deleteList}
+            />
           </Card>
         ))}
       </div>

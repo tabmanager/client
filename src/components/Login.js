@@ -118,7 +118,7 @@ class Login extends React.Component {
             toggle={this.modalToggle}
             className="sign-up"
           >
-            <ModalHeader toggle={this.modalToggle}>it's alaways thursday</ModalHeader>
+            <ModalHeader toggle={this.modalToggle}>it's always thursday</ModalHeader>
             <ModalBody>
             <Input
               type="text"

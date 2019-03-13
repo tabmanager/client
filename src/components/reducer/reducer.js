@@ -13,10 +13,10 @@ import {
 //   ---
 
 const initialState = {
+  tests: [],
   lists: {},
   loggingIn: false,
   error: '',
-  errorStatusCode: null,
   fetchingLists: false,
   token: localStorage.getItem('token'),
   user_id: localStorage.getItem('user_id')

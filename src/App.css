@@ -3,6 +3,8 @@
     display: flex; 
     justify-content: center;
     flex-wrap: wrap;
+    /* background-image: url('./assets/background.png'); */
+    /* background-color: #2e3035 */
 }
 
 i {
@@ -109,20 +111,26 @@ i {
 
 }
 
-
 /* --- List --- */
 
 .list-wrapper {
     display: flex;
     flex-wrap: wrap;
     margin-top: 100px;
+    background-color: rgba(255,255,255, 0.2);
 }
 
 .tabs {
-    width: 250px;
+    width: 450px;
     margin: 20px;
     box-shadow: 10px 11px 42px -1px rgba(0,0,0,0.75);
+    transition: box-shadow 2s
 }
+
+/* .tabs:hover {
+    box-shadow: 10px 11px 42px -1px rgba(99,8,107,0.75);
+} */
+
 
 .cap {
     display: flex;
@@ -135,9 +143,18 @@ i {
     height: 30px;
     width: 30px;
 }
-
+  
 .tabs p {
     margin-top: 10px;
+}
+
+/* --- Edit List --- */
+
+.tab-icon-wrapper {
+    display: flex;
+    justify-content: space-around;
+    background-color: RGBA(0,0,1,0.08);
+    padding: 20px;
 }
 
 /* --- Footer --- */

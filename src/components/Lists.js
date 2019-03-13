@@ -19,15 +19,16 @@ import {
 } from 'reactstrap'
 
 import { fetchLists, addList, deleteList } from './actions/actions'
+import axiosWithAuth from '../axiosWithAuth';
 import List from './List'
 
 // ---
 
 class Lists extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      newList: {
+      newList: { 
         title: '',
         website: '',
         short_description: '',
@@ -54,9 +55,26 @@ class Lists extends Component {
       }
     })
   }
-  addList() {
-    this.props.addList(this.state.newList)
-  }
+ addList = e => {  
+    e.preventDefault();
+    axiosWithAuth()
+      .post(`https://tab-manager.herokuapp.com/api/tabs`, { 
+        title: '',
+        website: '',
+        short_description: '',
+        category: '',
+        date: '',
+      })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+}
+  // addList() {
+  //   this.props.addList(this.state.newList)
+  // }
   deleteList = id => {
     const { user_id } = this.props
     this.props.deleteList(id)
@@ -148,7 +166,7 @@ class Lists extends Component {
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={this.addList}>
-                Do Something
+                add it! 
               </Button>{' '}
               <Button color="secondary" onClick={this.modalToggle}>
                 Cancel
