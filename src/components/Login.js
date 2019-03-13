@@ -22,9 +22,15 @@ class Login extends React.Component {
     super()
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      email: '',
     }
     this.modalToggle = this.modalToggle.bind(this)
+  }
+  componentDidMount(){
+    if (this.props.user_id.length > 0 && this.props.token.length > 0){
+      this.props.history.push('/tabs');
+    }
   }
   modalToggle() {
     this.setState({
@@ -47,6 +53,7 @@ class Login extends React.Component {
         console.log(res.data)
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('user_id', res.data.user_id)
+        this.props.history.push('/tabs');
       })
   }
   register = e => {
@@ -87,7 +94,7 @@ class Login extends React.Component {
             <div />
             {this.props.error && <p className="error">{this.props.error}</p>}
             <div className="login-button-wrapper">
-              <p>need an account?</p>
+              <p onClick={this.modalToggle}>need an account?</p>
               <Button>
                 {this.props.loggingIn ? (
                   <Loader
@@ -117,13 +124,37 @@ class Login extends React.Component {
             toggle={this.modalToggle}
             className="sign-up"
           >
-            <ModalHeader toggle={this.modalToggle}>"Sign Up"</ModalHeader>
+            <ModalHeader toggle={this.modalToggle}>it's always thursday</ModalHeader>
             <ModalBody>
-              <div>Sign Up Form</div>
+            <Input
+              type="text"
+              name="username"
+              placeholder="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+              className="login-input"
+            />
+            {/* <Label for="password">Password</Label> */}
+            <Input
+              type="password"
+              name="password"
+              placeholder="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              className="login-input"
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              className="login-input"
+            />
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={this.modalToggle}>
-                Do Something
+                go tabless
               </Button>{' '}
               <Button color="secondary" onClick={this.modalToggle}>
                 Cancel
@@ -136,9 +167,11 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = ({ error, loggingIn }) => ({
-  error,
-  loggingIn
+const mapStateToProps = ({ error, loggingIn, token, user_id }) => ({
+  token,
+  user_id
+  // error,
+  // loggingIn
 })
 
 export default connect(
@@ -146,58 +179,3 @@ export default connect(
   { login }
 )(Login)
 
-// --- possible structure change
-
-// class Login extends React.Component {
-//     constructor(){
-//         super();
-//         this.state= {
-//             credentials: {
-//               username: '',
-//               password: ''
-//             },
-//             modal: false
-//         }
-//         this.modalToggle = this.modalToggle.bind(this);
-//     }
-//   modalToggle(){
-//     this.setState({
-//         modal: !this.state.modal
-//     })
-//   }
-//   handleChange = e => {
-//     this.setState({
-//       credentials: {
-//         ...this.state.credentials,
-//         [e.target.name]: e.target.value
-//       }
-//     });
-//   };
-//   login = e => {
-//     e.preventDefault();
-//     this.props
-//       .login(this.state.credentials)
-//       .then(() => this.props.history.push('/'));
-//   };
-
-// submitHandler = event => {
-//     this.setState({isLoading: true})
-//     event.preventDefault();
-//     axios.post(`https://guidr2.herokuapp.com/login`, this.state.user)
-//     .then(resp => {
-//         console.log("running token")
-//         localStorage.setItem('token', resp.data.token)
-//         this.setState({ isLoggedIn: true })
-//       })
-//     .then(() => {console.log("running token")
-//       return  this.state.isLoggedIn ? this.loginUserTest() : null
-//      } )
-//     .catch(function (error) {
-//         console.log(error);
-//   })}
-
-//   login = e => {
-//     e.preventDefault();
-//     this.props
-//       .login({username: this.state.username, password: this.state.password})
-//       .then(() => this.props.history.push('/lists'));

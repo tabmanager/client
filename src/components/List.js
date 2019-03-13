@@ -16,6 +16,10 @@ import {
   CardText
 } from 'reactstrap'
 
+import EditList from './EditList'
+
+// ---
+
 class List extends React.Component {
   constructor(props) {
     super(props)
@@ -29,14 +33,23 @@ class List extends React.Component {
     return (
       <div className="list-wrapper">
         {this.props.tabs.map((tab, i) => (
-          <Card key={i}>
-            <CardHeader />
-            <CardBody>
+          <Card className="tabs" key={i}>
+            <CardHeader className="cap">
+            <img className="fav" src={tab.favicon} alt="website logo"/>
+            <p>{tab.date}</p>
+            </CardHeader>
+            <CardBody className="card-body">
               <CardTitle>{tab.title}</CardTitle>
-              <CardText />
-              <Button>Delete</Button>
+              <CardText>
+                <a href={tab.website} target="_blank">{tab.website}</a>
+                <p>{tab.short_description}</p>
+              </CardText>
             </CardBody>
-            <CardFooter />
+            <EditList 
+            tab={tab}
+            deleteList={this.props.deleteList}
+            fetchLists={this.props.fetchLists}
+            />
           </Card>
         ))}
       </div>

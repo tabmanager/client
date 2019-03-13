@@ -1,7 +1,14 @@
 
 .App {
     display: flex; 
-    flex-wrap: wrap
+    justify-content: center;
+    flex-wrap: wrap;
+    /* background-image: url('./assets/background.png'); */
+    /* background-color: #2e3035 */
+}
+
+i {
+    cursor: pointer;
 }
 
 /* --- Login Page --- */
@@ -21,17 +28,19 @@
     height: 500px;
     display: flex;
     justify-content: center;
+    background-image: url('./assets/tab6.png');
+    background-position: 50% 50%;
 }
 
 .login-form {
     width: 350px;
     height: 450px;
-    margin-top: 20px;
+    margin-top: 120px;
     box-shadow: 10px 11px 28px 0px rgba(0,0,0,0.75);
     background-color: #ECF0F1;
     padding: 20px;
     padding-top: 90px;
-
+    z-index: 1;
 }
 
 .login-input {
@@ -42,6 +51,10 @@
 .login-button-wrapper {
     display: flex;
     justify-content: center;
+}
+
+.login-form p {
+    cursor: pointer;
 }
 
 .login-button-wrapper p {
@@ -74,4 +87,81 @@
     background-position: 50% 50%;
 }
 
+/* --- Lists --- */
 
+.loader {
+    margin-top: 300px;
+}
+
+.lists-wrapper {
+    width: 100%;
+}
+
+.nav-bar {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background:rgba(255,255,255, 0.8);
+    box-shadow: -1px 6px 35px -1px rgba(0,0,0,0.75);
+    font-size: 30px;
+    z-index: 1;
+
+}
+
+/* --- List --- */
+
+.list-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    background-color: rgba(255,255,255, 0.2);
+}
+
+.tabs {
+    width: 450px;
+    margin: 20px;
+    box-shadow: 10px 11px 42px -1px rgba(0,0,0,0.75);
+    transition: box-shadow 2s
+}
+
+/* .tabs:hover {
+    box-shadow: 10px 11px 42px -1px rgba(99,8,107,0.75);
+} */
+
+
+.cap {
+    display: flex;
+    justify-content: space-between;
+    background-color: RGBA(0,0,1,0.08);
+
+}
+
+.fav {
+    height: 30px;
+    width: 30px;
+}
+  
+.tabs p {
+    margin-top: 10px;
+}
+
+/* --- Edit List --- */
+
+.tab-icon-wrapper {
+    display: flex;
+    justify-content: space-around;
+    background-color: RGBA(0,0,1,0.08);
+    padding: 20px;
+}
+
+/* --- Footer --- */
+
+footer {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
