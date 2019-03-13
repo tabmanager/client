@@ -19,7 +19,7 @@ import {
 } from 'reactstrap'
 
 import { fetchLists, addList, deleteList } from './actions/actions'
-import axiosWithAuth from '../axiosWithAuth';
+import axiosWithAuth from '../axiosWithAuth'
 import List from './List'
 
 // ---
@@ -28,12 +28,12 @@ class Lists extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      newList: { 
+      newList: {
         title: '',
         website: '',
         short_description: '',
         category: '',
-        date: '',
+        date: ''
       }
     }
     this.modalToggle = this.modalToggle.bind(this)
@@ -55,37 +55,42 @@ class Lists extends Component {
       }
     })
   }
-//  addList = e => {  
-//     e.preventDefault();
-//     axiosWithAuth()
-//       .post(`https://tab-manager.herokuapp.com/api/tabs`, { 
-//         title: '',
-//         website: '',
-//         short_description: '',
-//         category: '',
-//         date: '',
-//       })
-//       .then(res => {
-//         console.log(res.data);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//       });
-// }
-  addList() {
-    this.props.addList(this.state.newList)
-  }
+  //  addList = e => {
+  //     e.preventDefault();
+  //     axiosWithAuth()
+  //       .post(`https://tab-manager.herokuapp.com/api/tabs`, {
+  //         title: '',
+  //         website: '',
+  //         short_description: '',
+  //         category: '',
+  //         date: '',
+  //       })
+  //       .then(res => {
+  //         console.log(res.data);
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //       });
+  // }
+  // addList() {
+  //   console.log(this.props.addList)
+  //   this.props.addList(this.state.newList)
+  // }
   deleteList = id => {
     const { user_id } = this.props
     this.props.deleteList(id)
-    this.props.history.push('/tabs')
     this.props.fetchLists(user_id)
-
   }
   render() {
-    if (this.props.fetchingLists === true){
-      return ( 
-        <Loader type="Puff" className="loader" color="#B51A62" height={280} width={280} />
+    if (this.props.fetchingLists === true) {
+      return (
+        <Loader
+          type="Puff"
+          className="loader"
+          color="#B51A62"
+          height={280}
+          width={280}
+        />
       )
     }
     // grab the categories off the Object
@@ -94,11 +99,17 @@ class Lists extends Component {
       <div className="lists-wrapper">
         <div className="nav-bar">
           <i className="fas fa-plus" onClick={this.modalToggle} />
-          <i className="fas fa-sign-out-alt"></i>
+          <i className="fas fa-sign-out-alt" />
         </div>
         <div>
           {cats.map((cat, i) => (
-            <List key={i} category={cat} tabs={this.props.lists[cat]} deleteList={this.deleteList} fetchLists={this.props.fetchLists}/>
+            <List
+              key={i}
+              category={cat}
+              tabs={this.props.lists[cat]}
+              deleteList={this.deleteList}
+              fetchLists={this.props.fetchLists}
+            />
           ))}
           {/* {this.props.list.map(list => (
                 <Card>
@@ -116,7 +127,8 @@ class Lists extends Component {
         </div>
         <>
           <footer>
-          <i class="fas fa-copyright"></i><p>2019 tabless thursday</p>
+            <i className="fas fa-copyright" />
+            <p>2019 tabless thursday</p>
           </footer>
           <Modal
             isOpen={this.state.modal}
@@ -167,8 +179,11 @@ class Lists extends Component {
               />
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" onClick={this.addList}>
-                add it! 
+              <Button
+                color="primary"
+                onClick={() => this.props.addList(this.state.newList)}
+              >
+                add it!
               </Button>{' '}
               <Button color="secondary" onClick={this.modalToggle}>
                 Cancel

@@ -58,9 +58,25 @@ export const reducer = (state = initialState, action) => {
         error: action.payload
       }
     case ADD_LIST:
-      return {
-        ...state,
-        lists: Object.assign(state.lists, action.payload)
+      if (Object.keys(state.lists).includes(action.payload.category)) {
+        return {
+          ...state,
+          lists: {
+            ...state.lists,
+            [action.payload.category]: [
+              ...state.lists[action.payload.category],
+              action.payload
+            ]
+          }
+        }
+      } else {
+        return {
+          ...state,
+          lists: {
+            ...state.lists,
+            [action.payload.category]: [action.payload]
+          }
+        }
       }
     case ADD_LIST_FAILURE:
       return {
