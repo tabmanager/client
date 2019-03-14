@@ -7,13 +7,18 @@ import axiosWithAuth from '../../axiosWithAuth';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START });
-    return axios.post('http://localhost:5000/api/login', creds).then(res => {
-      localStorage.setItem('token', res.data.payload);
+    return axios.post('https://tab-manager.herokuapp.com/api/login', creds)
+    .then(res => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload });
-    });
+
+    })
+    .catch(err => {
+      dispatch ({ type: LOGIN_FAILURE, payload: true })
+    })
   };
 
 // ---    
@@ -33,8 +38,8 @@ export const fetchLists = (user_id) => dispatch => {
       dispatch({ type: FETCH_LISTS_SUCCESS, payload: res.data });
     })
     .catch(err => {
-        console.log('call failed: ', err.response);
-        dispatch({ type: FETCH_LISTS_FAILURE, payload: err.response });
+        console.log(err);
+        dispatch({ type: FETCH_LISTS_FAILURE });
     });
 };
 
@@ -48,6 +53,7 @@ export const addList = newList => dispatch => {
       .post(`https://tab-manager.herokuapp.com/api/tabs`, newList)
       .then(res => {
         console.log(res.data);
+        // window.location.reload();
         dispatch({ type: ADD_LIST, payload: res.data });
       })
       .catch(err => {

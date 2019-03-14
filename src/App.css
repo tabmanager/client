@@ -1,8 +1,10 @@
 
 .App {
+    width: 100%;
     display: flex; 
     justify-content: center;
     flex-wrap: wrap;
+    background-image: url('./assets/background-tabs.png');
     /* background-image: url('./assets/background.png'); */
     /* background-color: #2e3035 */
 }
@@ -11,46 +13,61 @@ i {
     cursor: pointer;
 }
 
+p {
+    /* font-family: 'Roboto Mono', monospace; */
+}
+
+h1 {
+    font-family: 'Roboto Mono', monospace;
+    margin-top: 130px;
+    margin-left: 30px;
+    margin-bottom: -190px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 /* --- Login Page --- */
 
 .login-wrapper {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .login-div {
     width: 500px;
-    height:500px;
+    height: 500px;
 }
 
 .login-form-wrapper {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    /* width: 500px; */
+    height: 1000px;
     display: flex;
     justify-content: center;
-    background-image: url('./assets/tab6.png');
+    /* background-image: url('./assets/background-tabs.png'); */
+    /* background-image: url('./assets/tab6.png'); */
     background-position: 50% 50%;
 }
 
 .login-form {
-    width: 350px;
-    height: 450px;
+    width: 400px;
+    height: 500px;
     margin-top: 120px;
     box-shadow: 10px 11px 28px 0px rgba(0,0,0,0.75);
     background-color: #ecf0f1;
     /* background-color: #ECF0F1; */
     padding: 20px;
-    padding-top: 10px;
+    padding-top: 70px;
     z-index: 1;
 }
 
 .logo-tt {
-    height: 150px;
+    height: 100px;
     width: 150px;
-    margin: auto;
+    margin-left: 135px;
     background-image: url('./assets/logo-tt.png');
     background-repeat: no-repeat;
-    position: 50% 50%
 }
 
 .login-input {
@@ -75,34 +92,32 @@ i {
 }
 
 .login-button {
- 
+ background-color: #34495e;
 }
 
-.login-one {
-    background-image: url(./assets/tab5.png);
+.accent-quote {
+    font-size: 100px;
+}
+
+.always-thursday {
+    height: 100px;
+    width: 490px;
+    margin-top: -100px;
+    margin-left: -12px;
+    background-image: url('./assets/always-thursday.png');
     background-position: 50% 50%;
 }
 
-.login-two {
-    background-image: url(./assets/darktab1.png);
-    background-position: 50% 50%;
+.sign-up {
+    background-color: #29cdb5
 }
 
-.login-three {
-    background-image: url(./assets/tab3.png);
-    background-position: 50% 50%;
+.reg-btn {
+ background-color: #373331
 }
 
-.login-four {
-    background-image: url(./assets/darktab3.png);
-    background-position: 50% 50%;
-}
-
-.login-five {
-    background-image: url(./assets/darktab2.png);
-    background-position: 50% 50%;
-}
-
+/* --- Lists --- */
+/* --- Lists --- */
 /* --- Lists --- */
 
 .loader {
@@ -118,30 +133,74 @@ i {
     height: 80px;
     position: fixed;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    background:rgba(255,255,255, 0.8);
+    background-image: url('./assets/purp-logo-tt.png');
+    background-position: 2% 50%;
+    background-repeat: no-repeat;
+    background-color: #512e5e;
     box-shadow: -1px 6px 35px -1px rgba(0,0,0,0.75);
+    padding-right: 10px;
+    padding-left: 180px;
+    color: white;
     font-size: 30px;
     z-index: 1;
+}
 
+
+.nav-bar i {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.plus {
+    width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fdea2e;
+    color: black;
+}
+
+.user {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f40968
+}
+
+.add-tab-header {
+    text-align: center;
+    background-color: #ecf0f1
+}
+
+.add-tab-btn {
+    background-color: #512e5e
 }
 
 /* --- List --- */
+/* --- List --- */
+/* --- List --- */
 
-.list-wrapper {
+.cat-wrapper {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 100px;
-    background-color: rgba(255,255,255, 0.2);
+    margin-top: -100px;
+    margin-bottom: -80px;
+    padding-top: 200px;
+    background-color: white;
 }
 
 .tabs {
-    width: 450px;
+    width: 350px;
     margin: 20px;
     box-shadow: 10px 11px 42px -1px rgba(0,0,0,0.75);
     transition: box-shadow 2s
 }
+
 
 /* .tabs:hover {
     box-shadow: 10px 11px 42px -1px rgba(99,8,107,0.75);
@@ -151,17 +210,51 @@ i {
 .cap {
     display: flex;
     justify-content: space-between;
-    background-color: RGBA(0,0,1,0.08);
+    /* background-image: url('./assets/sml-purp-logo-tt.png');
+    background-repeat: no-repeat;
+    background-position: 90% 50%; */
+    background-color: #ecf0f1
+    /* background-color: RGBA(0,0,1,0.08); */
 
+}
+
+.title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tab-footer-one {
+    background-image: url('./assets/tab-footer-one.png');
+    height: 30px;
+    width: 300px;
+}
+
+.tab-footer-two {
+    background-image: url('./assets/tab-footer-two.png')
+}
+
+.tab-footer-three {
+    background-image: url('./assets/tab-footer-three.png')
 }
 
 .fav {
     height: 30px;
     width: 30px;
+    border-radius: 50%;
+    /* box-shadow: 0px 14px 64px -1px rgba(0,0,0,0.75); */
 }
+
   
 .tabs p {
     margin-top: 10px;
+}
+
+.tab-five {
+    width: 300px;
+    height: 350px;
+    background-image: url('./assets/tab5.png');
+    background-position: 50% 50%;
 }
 
 /* --- Edit List --- */
@@ -169,8 +262,21 @@ i {
 .tab-icon-wrapper {
     display: flex;
     justify-content: space-around;
-    background-color: RGBA(0,0,1,0.08);
+    background-color: #ecf0f1;
     padding: 20px;
+}
+
+.tab-icon-wrapper i {
+    font-size: 30px;
+    /* color: #34495e */
+}
+
+.edit-header {
+    background-color: #ecf0f1
+}
+
+.edit-btn {
+    background-color: #512e5e
 }
 
 /* --- Footer --- */
@@ -180,4 +286,17 @@ footer {
     height: 80px;
     display: flex;
     justify-content: center;
+    margin-top: 80px;
+    background-color: white;
+    padding-top: 50px;
 }
+
+
+
+
+
+
+
+
+
+

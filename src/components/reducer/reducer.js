@@ -7,7 +7,8 @@ import {
   ADD_LIST,
   ADD_LIST_FAILURE,
   DELETE_START,
-  DELETE_SUCCESS
+  DELETE_SUCCESS,
+  LOGIN_FAILURE
 } from '../actions/actions'
 
 //   ---
@@ -16,7 +17,7 @@ const initialState = {
   tests: [],
   lists: {},
   loggingIn: false,
-  error: '',
+  error: null,
   fetchingLists: false,
   token: localStorage.getItem('token'),
   user_id: localStorage.getItem('user_id')
@@ -29,15 +30,23 @@ export const reducer = (state = initialState, action) => {
     case LOGIN_START:
       return {
         ...state,
-        loggingIn: true
+        loggingIn: true,
+        error: false
       }
     case LOGIN_SUCCESS:
       return {
         ...state,
         loggingIn: false,
+        error: false,
         token: action.payload,
         user_id: localStorage.getItem('user_id')
       }
+    case LOGIN_FAILURE:
+    return {
+      ...state,
+      loggingIn: false,
+      error: true
+    }
     case FETCH_LISTS_START:
       return {
         ...state,
@@ -85,9 +94,6 @@ export const reducer = (state = initialState, action) => {
           }
         }
       }
-
-
-
 
     case ADD_LIST_FAILURE:
       return {
