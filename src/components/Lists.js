@@ -21,9 +21,9 @@ class Lists extends Component {
     super(props)
     this.state = {
       newList: {
-        title: '',
+        // title: '',
         website: '',
-        short_description: '',
+        // short_description: '',
         category: '',
         user_id: this.props.user_id
       }
@@ -32,7 +32,6 @@ class Lists extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.lists)
     const { user_id } = this.props
     this.props.fetchLists(user_id)
   }
@@ -51,7 +50,7 @@ class Lists extends Component {
       }
     })
   }
-
+  
   logout(){
     localStorage.clear("token")
     localStorage.clear("user_id")
@@ -59,18 +58,17 @@ class Lists extends Component {
   }
 
   addList() {
-    console.log(this.props.addList)
     this.props.addList(this.state.newList)
     this.setState({
-        ...this.state,
-          newList: {
-        title: '',
+      ...this.state,
+      newList: {
+        // title: '',
         website: '',
-        short_description: '',
-        category: '',
-        }
+        // short_description: '',
+        category: ''
+      }
     })
-    this.modalToggle();
+    this.modalToggle()
   }
 
   deleteList = id => {
@@ -102,8 +100,14 @@ class Lists extends Component {
     return (
       <div className="lists-wrapper">
         <div className="nav-bar">
-          <div className="plus"><i className="fas fa-plus" onClick={this.modalToggle} /></div>
-          <div className="user"><i className="fas fa-cog" /><i className="fas fa-users" /><i className="fas fa-sign-out-alt" onClick={this.logout} /></div>
+          <div className="plus">
+            <i className="fas fa-plus" onClick={this.modalToggle} />
+          </div>
+          <div className="user">
+            <i className="fas fa-cog" />
+            <i className="fas fa-users" />
+            <i className="fas fa-sign-out-alt" onClick={this.logout} />
+          </div>
         </div>
         <div>
           {cats.map((cat, i) => (
@@ -128,7 +132,11 @@ class Lists extends Component {
             className="sign-up"
           >
             <ModalHeader className="add-tab-header" toggle={this.modalToggle}>
-              <img className="fav" src="https://i.imgur.com/2p2m4fg.png" alt="tabless thursday logo"/>
+              <img
+                className="fav"
+                src="https://i.imgur.com/2p2m4fg.png"
+                alt="tabless thursday logo"
+              />
             </ModalHeader>
             <ModalBody>
               <Input
@@ -147,28 +155,33 @@ class Lists extends Component {
                 onChange={this.handleChange}
                 className="login-input"
               />
-              <Input
+              {/* <Input
                 type="text"
                 name="title"
                 placeholder="title"
                 value={this.state.newList.title}
                 onChange={this.handleChange}
                 className="login-input"
-              />
-              <Input
+              /> */}
+              {/* <Input
                 type="textarea"
                 name="short_description"
                 placeholder="hey! why'd you need this link, anyway?"
                 value={this.state.newList.short_description}
                 onChange={this.handleChange}
                 className="login-input"
-              />
+              /> */}
+              {/* <Input
+                type="text"
+                name="date"
+                placeholder="date"
+                value={this.state.newList.date}
+                onChange={this.handleChange}
+                className="login-input"
+              /> */}
             </ModalBody>
             <ModalFooter>
-              <Button
-                className="add-tab-btn"
-                onClick={() => this.addList()}
-              >
+              <Button className="add-tab-btn" onClick={() => this.addList()}>
                 add it!
               </Button>{' '}
             </ModalFooter>

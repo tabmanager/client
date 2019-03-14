@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  CardText
-} from 'reactstrap'
+import { Card, CardHeader, CardBody, CardTitle, CardText } from 'reactstrap'
 
 import EditList from './EditList'
 
@@ -15,9 +9,6 @@ class List extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
-  }
-  componentDidMount() {
-    console.log(this.props.tabs)
   }
 
   render() {
