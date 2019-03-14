@@ -216,36 +216,14 @@ h1 {
     font-weight: bold;
 }
 
-.tab-footer-one {
-    background-image: url('./assets/tab-footer-one.png');
-    height: 30px;
-    width: 300px;
-}
-
-.tab-footer-two {
-    background-image: url('./assets/tab-footer-two.png')
-}
-
-.tab-footer-three {
-    background-image: url('./assets/tab-footer-three.png')
-}
-
 .fav {
     height: 30px;
     width: 30px;
     border-radius: 50%;
 }
 
-  
 .tabs p {
     margin-top: 10px;
-}
-
-.tab-five {
-    width: 300px;
-    height: 350px;
-    background-image: url('./assets/tab5.png');
-    background-position: 50% 50%;
 }
 
 
