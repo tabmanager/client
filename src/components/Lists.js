@@ -33,7 +33,7 @@ class Lists extends Component {
         website: '',
         short_description: '',
         category: '',
-        date: '',
+        // date: '',
         user_id: this.props.user_id
       }
     }
@@ -57,41 +57,27 @@ class Lists extends Component {
       }
     })
   }
-  //  addList = e => {
-  //     e.preventDefault();
-  //     axiosWithAuth()
-  //       .post(`https://tab-manager.herokuapp.com/api/tabs`, this.state.newList)
-  //       .then(res => {
-  //         console.log(res)
-  //         if (Object.keys(this.props.state.lists).includes(this.action.payload.category)) {
-  //           return {
-  //             ...this.props.state,
-  //             lists: {
-  //               ...this.props.state.lists,
-  //               [this.action.payload.category]: [
-  //                 ...this.props.state.lists[this.action.payload.category],
-  //                 this.action.payload
-  //               ]
-  //             }
-  //           }
-  //         } else {
-  //           return {
-  //             ...this.props.state,
-  //             lists: {
-  //               ...this.props.state.lists,
-  //               [this.action.payload.category]: [this.action.payload]
-  //             }
-  //           }
-  //         }
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //       });
-  // }
+  logout(){
+    localStorage.clear("token")
+    localStorage.clear("user_id")
+    window.location.reload()
+  }
   addList() {
+    // this.modalToggle()
     console.log(this.props.addList)
     this.props.addList(this.state.newList)
+    this.setState({
+        ...this.state,
+          newList: {
+        title: '',
+        website: '',
+        short_description: '',
+        category: '',
+        }
+    })
+    this.modalToggle();
   }
+
   // deleteList = id => {
   //   const { user_id } = this.props
   //   this.props.deleteList(id)
@@ -103,6 +89,7 @@ class Lists extends Component {
       .then(res => {
         console.log(res)
         this.props.fetchLists(this.props.user_id)
+        this.componentDidMount()
       })
       .catch(err => {
         console.log(err)
@@ -112,7 +99,7 @@ class Lists extends Component {
     if (this.props.fetchingLists === true) {
       return (
         <Loader
-          type="Puff"
+          type="Grid"
           className="loader"
           color="#B51A62"
           height={280}
@@ -125,8 +112,8 @@ class Lists extends Component {
     return (
       <div className="lists-wrapper">
         <div className="nav-bar">
-          <i className="fas fa-plus" onClick={this.modalToggle} />
-          <i className="fas fa-sign-out-alt" />
+          <div className="plus"><i className="fas fa-plus" onClick={this.modalToggle} /></div>
+          <div className="user"><i className="fas fa-cog" /><i className="fas fa-users" /><i className="fas fa-sign-out-alt" onClick={this.logout} /></div>
         </div>
         <div>
           {cats.map((cat, i) => (
@@ -136,6 +123,7 @@ class Lists extends Component {
               tabs={this.props.lists[cat]}
               deleteList={this.deleteList}
               fetchLists={this.props.fetchLists}
+              user_id={this.state.user_id}
             />
           ))}
           {/* {this.props.list.map(list => (
@@ -162,7 +150,9 @@ class Lists extends Component {
             toggle={this.modalToggle}
             className="sign-up"
           >
-            <ModalHeader toggle={this.modalToggle}>add a tab</ModalHeader>
+            <ModalHeader className="add-tab-header" toggle={this.modalToggle}>
+              <img className="fav" src="https://i.imgur.com/2p2m4fg.png" alt="tabless thursday logo"/>
+            </ModalHeader>
             <ModalBody>
               <Input
                 type="text"
@@ -196,25 +186,22 @@ class Lists extends Component {
                 onChange={this.handleChange}
                 className="login-input"
               />
-              <Input
+              {/* <Input
                 type="text"
                 name="date"
                 placeholder="date"
                 value={this.state.newList.date}
                 onChange={this.handleChange}
                 className="login-input"
-              />
+              /> */}
             </ModalBody>
             <ModalFooter>
               <Button
-                color="primary"
-                onClick={() => this.props.addList(this.state.newList)}
+                className="add-tab-btn"
+                onClick={() => this.addList()}
               >
                 add it!
               </Button>{' '}
-              <Button color="secondary" onClick={this.modalToggle}>
-                Cancel
-              </Button>
             </ModalFooter>
           </Modal>
         </>

@@ -17,7 +17,7 @@ const PrivateRoute = ({
         token && errorStatusCode !== 403 ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )
       } 
     />

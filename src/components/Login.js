@@ -10,7 +10,8 @@ import {
   ModalFooter,
   Form,
   // Label,
-  Input
+  Input,
+  Alert
 } from 'reactstrap'
 
 import { login } from './actions/actions'
@@ -27,11 +28,11 @@ class Login extends React.Component {
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
-  // componentDidMount(){
-  //   if (this.props.user_id.length > 0 && this.props.token.length > 0){
-  //     this.props.history.push('/tabs');
-  //   }
-  // }
+  componentDidMount(){
+    if (this.props.token){
+      this.props.history.push('/tabs');
+    }
+  }
   modalToggle() {
     this.setState({
       modal: !this.state.modal
@@ -54,6 +55,8 @@ class Login extends React.Component {
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('user_id', res.data.user_id)
         this.props.history.push('/tabs')
+        window.location.reload()
+        console.log(this.props)
       })
   }
   register = e => {
@@ -67,13 +70,12 @@ class Login extends React.Component {
       .then(res => {
         console.log(res)
         this.modalToggle();
-        this.props.history.push('/tabs')
       })
   }
   render() {
     return (
       <div className="login-wrapper">
-        <div className="login-div login-one" />
+        {/* <div className="login-div login-one" /> */}
         <div className="login-form-wrapper">
           <Form className="login-form" onSubmit={this.login}>
             {/* <Label for="username">username</Label> */}
@@ -111,24 +113,24 @@ class Login extends React.Component {
                   'login'
                 )}
               </Button>
+              {this.props.error === true ? ( 
+              <Alert color="danger">
+              This is a danger alert — check it out!
+              </Alert>) : <> </>}
             </div>
           </Form>
         </div>
-        <div className="login-div login-two" />
+        {/* <div className="login-div login-two" />
         <div className="login-div login-three" />
         <div className="login-div login-four" />
-        <div className="login-div login-five" />
-        <button onClick={this.register}>Sign Up</button>
-        <>
-          <Button color="danger" onClick={this.modalToggle}>
-            Sign Up
-          </Button>
+        <div className="login-div login-five" /> */}
+          <>
           <Modal
             isOpen={this.state.modal}
             toggle={this.modalToggle}
             className="sign-up"
           >
-            <ModalHeader toggle={this.modalToggle}>it's always thursday</ModalHeader>
+            <ModalHeader className="sign-up" toggle={this.modalToggle}><span className="accent-quote">“</span><div className="always-thursday" /></ModalHeader>
             <ModalBody>
             <Input
               type="text"
@@ -137,6 +139,7 @@ class Login extends React.Component {
               value={this.state.username}
               onChange={this.handleChange}
               className="login-input"
+              required
             />
             {/* <Label for="password">Password</Label> */}
             <Input
@@ -146,6 +149,7 @@ class Login extends React.Component {
               value={this.state.password}
               onChange={this.handleChange}
               className="login-input"
+              required
             />
             <Input
               type="email"
@@ -156,13 +160,10 @@ class Login extends React.Component {
               className="login-input"
             />
             </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.register}>
+            <ModalFooter className="sign-up">
+              <Button className="reg-btn" onClick={this.register}>
                 go tabless
               </Button>{' '}
-              <Button color="secondary" onClick={this.modalToggle}>
-                Cancel
-              </Button>
             </ModalFooter>
           </Modal>
         </>

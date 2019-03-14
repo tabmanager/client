@@ -48,7 +48,7 @@ class EditList extends React.Component {
       .put(`https://tab-manager.herokuapp.com/api/tabs/${id}`, editList)
       .then(res => {
         console.log(res)
-        window.location.reload()
+        window.location.reload();
       })
       .catch(err => {
         console.log(err)
@@ -69,7 +69,9 @@ class EditList extends React.Component {
           toggle={this.modalToggle}
           className="sign-up"
         >
-          <ModalHeader toggle={this.modalToggle}>edit a tab</ModalHeader>
+          <ModalHeader className="edit-header" toggle={this.modalToggle}>
+            <img className="fav" src="https://i.imgur.com/2p2m4fg.png" alt="tabless thursday logo"/>
+          </ModalHeader>
           <ModalBody>
             <Input
               type="text"
@@ -99,24 +101,22 @@ class EditList extends React.Component {
               onChange={this.handleChange}
               className="login-input"
             />
-            <Input
+            {/* <Input
               type="text"
               name="date"
               value={this.state.editList.date}
               onChange={this.handleChange}
               className="login-input"
-            />
+            /> */}
           </ModalBody>
           <ModalFooter>
             <Button
-              color="primary"
+              className="edit-btn"
               onClick={() => this.editList(this.props.tab.id)}
-            >
+              >
               change it up!
             </Button>{' '}
-            <Button color="secondary" onClick={this.modalToggle}>
-              Cancel
-            </Button>
+
           </ModalFooter>
         </Modal>
       </>
