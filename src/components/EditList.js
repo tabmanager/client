@@ -10,7 +10,7 @@ import {
 
 import axiosWithAuth from '../axiosWithAuth'
 
-// ---
+// --- EditList component
 
 class EditList extends React.Component {
   constructor(props) {
@@ -98,13 +98,6 @@ class EditList extends React.Component {
               onChange={this.handleChange}
               className="login-input"
             />
-            {/* <Input
-              type="text"
-              name="date"
-              value={this.state.editList.date}
-              onChange={this.handleChange}
-              className="login-input"
-            /> */}
           </ModalBody>
           <ModalFooter>
             <Button

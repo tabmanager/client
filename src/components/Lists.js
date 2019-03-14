@@ -14,7 +14,7 @@ import { fetchLists, addList, deleteList } from './actions/actions'
 import axiosWithAuth from '../axiosWithAuth'
 import List from './List'
 
-// ---
+// --- Lists component
 
 class Lists extends Component {
   constructor(props) {
@@ -30,15 +30,18 @@ class Lists extends Component {
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
+
   componentDidMount() {
     const { user_id } = this.props
     this.props.fetchLists(user_id)
   }
+
   modalToggle() {
     this.setState({
       modal: !this.state.modal
     })
   }
+
   handleChange = e => {
     this.setState({
       newList: {
@@ -47,18 +50,14 @@ class Lists extends Component {
       }
     })
   }
-  logout() {
-    localStorage.clear('token')
-    localStorage.clear('user_id')
+  
+  logout(){
+    localStorage.clear("token")
+    localStorage.clear("user_id")
     window.location.reload()
   }
+
   addList() {
-    // this.modalToggle()
-
-    console.log(this.state.newList.website)
-
-    // const newTab = Object.assign(this.state.newList)
-
     this.props.addList(this.state.newList)
     this.setState({
       ...this.state,
@@ -72,11 +71,6 @@ class Lists extends Component {
     this.modalToggle()
   }
 
-  // deleteList = id => {
-  //   const { user_id } = this.props
-  //   this.props.deleteList(id)
-  //   this.props.fetchLists(user_id)
-  // }
   deleteList = id => {
     axiosWithAuth()
       .delete(`https://tab-manager.herokuapp.com/api/tabs/${id}`)
@@ -126,19 +120,6 @@ class Lists extends Component {
               user_id={this.state.user_id}
             />
           ))}
-          {/* {this.props.list.map(list => (
-                <Card>
-                    <CardHeader>{list.title}</CardHeader>
-                    <CardBody>
-                        <Link to={`/tabs/${list.id}`}>
-                        <CardTitle></CardTitle>
-                        <CardText></CardText>
-                        </Link>
-                        <Button onClick={() => this.deleteList(list.id)}>Delete</Button>
-                    </CardBody>
-                    <CardFooter></CardFooter>
-                </Card>
-                ))} */}
         </div>
         <>
           <footer>
