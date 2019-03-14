@@ -1,20 +1,5 @@
 import React from 'react'
-// import axios from 'axios'
-import {
-  Card,
-  Button,
-  CardHeader,
-  CardFooter,
-  CardBody,
-  //   Modal,
-  //   ModalHeader,
-  //   ModalBody,
-  //   ModalFooter,
-  //   Form,
-  //   Input,
-  CardTitle,
-  CardText
-} from 'reactstrap'
+import { Card, CardHeader, CardBody, CardTitle, CardText } from 'reactstrap'
 
 import EditList from './EditList'
 
@@ -25,38 +10,47 @@ class List extends React.Component {
     super(props)
     this.state = {}
   }
-  componentDidMount() {
-    console.log(this.props.tabs)
-  }
 
   render() {
     return (
       <div className="obj-wrapper">
         <h1>{this.props.category}</h1>
         <div className="cat-wrapper">
-        {this.props.tabs.map((tab, i) => (
-          <Card className="tabs" key={i}>
-            <CardHeader className="cap">
-              {tab.favicon ? (<img className="fav" src={tab.favicon} alt="website logo" />) : <img className="fav" src="https://i.imgur.com/2p2m4fg.png" alt="tabless thursday logo"/>}
-            </CardHeader>
-            <CardBody className="card-body">
-              <CardTitle className="title">{tab.title}</CardTitle>
-              <CardText>
-                <a href={tab.website} target="_blank" rel="noopener noreferrer">
-                  {tab.website}
-                </a>
-                <br />
-                <br />
-                <span>{tab.short_description}</span>
-              </CardText>
-            </CardBody>
-            <EditList
-              tab={tab}
-              deleteList={this.props.deleteList}
-              fetchLists={this.props.fetchLists}
-              user_id={this.props.user_id}
-            />
-          </Card>
+          {this.props.tabs.map((tab, i) => (
+            <Card className="tabs" key={i}>
+              <CardHeader className="cap">
+                {tab.favicon ? (
+                  <img className="fav" src={tab.favicon} alt="website logo" />
+                ) : (
+                  <img
+                    className="fav"
+                    src="https://i.imgur.com/2p2m4fg.png"
+                    alt="tabless thursday logo"
+                  />
+                )}
+              </CardHeader>
+              <CardBody className="card-body">
+                <CardTitle className="title">{tab.title}</CardTitle>
+                <CardText>
+                  <a
+                    href={tab.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {tab.website}
+                  </a>
+                  <br />
+                  <br />
+                  <span>{tab.short_description}</span>
+                </CardText>
+              </CardBody>
+              <EditList
+                tab={tab}
+                deleteList={this.props.deleteList}
+                fetchLists={this.props.fetchLists}
+                user_id={this.props.user_id}
+              />
+            </Card>
             // { 0.1 < Math.random() && Math.random() < 0.7 ? ( <div className="tab-five"/>) : (<div />)}
           ))}
         </div>

@@ -1,18 +1,11 @@
 import React from 'react'
 import {
-  Card,
   Button,
-  CardHeader,
-  CardFooter,
-  CardBody,
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Form,
-  Input,
-  CardTitle,
-  CardText
+  Input
 } from 'reactstrap'
 
 import axiosWithAuth from '../axiosWithAuth'
@@ -48,7 +41,7 @@ class EditList extends React.Component {
       .put(`https://tab-manager.herokuapp.com/api/tabs/${id}`, editList)
       .then(res => {
         console.log(res)
-        window.location.reload();
+        window.location.reload()
       })
       .catch(err => {
         console.log(err)
@@ -70,7 +63,11 @@ class EditList extends React.Component {
           className="sign-up"
         >
           <ModalHeader className="edit-header" toggle={this.modalToggle}>
-            <img className="fav" src="https://i.imgur.com/2p2m4fg.png" alt="tabless thursday logo"/>
+            <img
+              className="fav"
+              src="https://i.imgur.com/2p2m4fg.png"
+              alt="tabless thursday logo"
+            />
           </ModalHeader>
           <ModalBody>
             <Input
@@ -113,10 +110,9 @@ class EditList extends React.Component {
             <Button
               className="edit-btn"
               onClick={() => this.editList(this.props.tab.id)}
-              >
+            >
               change it up!
             </Button>{' '}
-
           </ModalFooter>
         </Modal>
       </>
