@@ -9,14 +9,13 @@ import {
   ModalBody,
   ModalFooter,
   Form,
-  // Label,
   Input,
   Alert
 } from 'reactstrap'
 
 import { login } from './actions/actions'
 
-// ---
+// --- Login 
 
 class Login extends React.Component {
   constructor() {
@@ -28,21 +27,25 @@ class Login extends React.Component {
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
+
   componentDidMount(){
     if (this.props.token){
       this.props.history.push('/tabs');
     }
   }
+
   modalToggle() {
     this.setState({
       modal: !this.state.modal
     })
   }
+
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
+
   login = e => {
     e.preventDefault()
     axios
@@ -59,6 +62,7 @@ class Login extends React.Component {
         console.log(this.props)
       })
   }
+
   register = e => {
     e.preventDefault()
     axios
@@ -72,13 +76,12 @@ class Login extends React.Component {
         this.modalToggle();
       })
   }
+
   render() {
     return (
       <div className="login-wrapper">
-        {/* <div className="login-div login-one" /> */}
         <div className="login-form-wrapper">
           <Form className="login-form" onSubmit={this.login}>
-            {/* <Label for="username">username</Label> */}
             <div className="logo-tt"></div>
             <Input
               type="text"
@@ -88,7 +91,6 @@ class Login extends React.Component {
               onChange={this.handleChange}
               className="login-input"
             />
-            {/* <Label for="password">Password</Label> */}
             <Input
               type="password"
               name="password"
@@ -120,10 +122,6 @@ class Login extends React.Component {
             </div>
           </Form>
         </div>
-        {/* <div className="login-div login-two" />
-        <div className="login-div login-three" />
-        <div className="login-div login-four" />
-        <div className="login-div login-five" /> */}
           <>
           <Modal
             isOpen={this.state.modal}
@@ -141,7 +139,6 @@ class Login extends React.Component {
               className="login-input"
               required
             />
-            {/* <Label for="password">Password</Label> */}
             <Input
               type="password"
               name="password"
@@ -175,8 +172,6 @@ class Login extends React.Component {
 const mapStateToProps = ({ error, loggingIn, token, user_id }) => ({
   token,
   user_id
-  // error,
-  // loggingIn
 })
 
 export default connect(

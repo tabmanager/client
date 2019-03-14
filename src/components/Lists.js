@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
-// import { Link } from 'react-router-dom'
 import {
   Button,
   Modal,
@@ -9,20 +8,13 @@ import {
   ModalBody,
   ModalFooter,
   Input
-  //   Form,
-  //   Card,
-  //   CardHeader,
-  //   CardFooter,
-  //   CardBody,
-  //   CardTitle,
-  //   CardText
 } from 'reactstrap'
 
 import { fetchLists, addList, deleteList } from './actions/actions'
 import axiosWithAuth from '../axiosWithAuth'
 import List from './List'
 
-// ---
+// --- Lists component
 
 class Lists extends Component {
   constructor(props) {
@@ -33,22 +25,24 @@ class Lists extends Component {
         website: '',
         short_description: '',
         category: '',
-        // date: '',
         user_id: this.props.user_id
       }
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
+
   componentDidMount() {
     console.log(this.props.lists)
     const { user_id } = this.props
     this.props.fetchLists(user_id)
   }
+
   modalToggle() {
     this.setState({
       modal: !this.state.modal
     })
   }
+
   handleChange = e => {
     this.setState({
       newList: {
@@ -57,13 +51,14 @@ class Lists extends Component {
       }
     })
   }
+
   logout(){
     localStorage.clear("token")
     localStorage.clear("user_id")
     window.location.reload()
   }
+
   addList() {
-    // this.modalToggle()
     console.log(this.props.addList)
     this.props.addList(this.state.newList)
     this.setState({
@@ -78,11 +73,6 @@ class Lists extends Component {
     this.modalToggle();
   }
 
-  // deleteList = id => {
-  //   const { user_id } = this.props
-  //   this.props.deleteList(id)
-  //   this.props.fetchLists(user_id)
-  // }
   deleteList = id => {
     axiosWithAuth()
       .delete(`https://tab-manager.herokuapp.com/api/tabs/${id}`)
@@ -126,19 +116,6 @@ class Lists extends Component {
               user_id={this.state.user_id}
             />
           ))}
-          {/* {this.props.list.map(list => (
-                <Card>
-                    <CardHeader>{list.title}</CardHeader>
-                    <CardBody>
-                        <Link to={`/tabs/${list.id}`}>
-                        <CardTitle></CardTitle>
-                        <CardText></CardText>
-                        </Link>
-                        <Button onClick={() => this.deleteList(list.id)}>Delete</Button>
-                    </CardBody>
-                    <CardFooter></CardFooter>
-                </Card>
-                ))} */}
         </div>
         <>
           <footer>
@@ -186,14 +163,6 @@ class Lists extends Component {
                 onChange={this.handleChange}
                 className="login-input"
               />
-              {/* <Input
-                type="text"
-                name="date"
-                placeholder="date"
-                value={this.state.newList.date}
-                onChange={this.handleChange}
-                className="login-input"
-              /> */}
             </ModalBody>
             <ModalFooter>
               <Button

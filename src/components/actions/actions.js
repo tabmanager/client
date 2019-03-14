@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import axiosWithAuth from '../../axiosWithAuth';
 
-// ---
+// --- Login actions
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -21,7 +21,7 @@ export const login = creds => dispatch => {
     })
   };
 
-// ---    
+// --- Fetch lists actions
 
 export const FETCH_LISTS_START = 'FETCH_LISTS_START';
 export const FETCH_LISTS_SUCCESS = 'FETCH_LISTS_SUCCESS';
@@ -43,7 +43,7 @@ export const fetchLists = (user_id) => dispatch => {
     });
 };
 
-// --- 
+// --- Add list actions
 
 export const ADD_LIST = 'ADD_LIST';
 export const ADD_LIST_FAILURE = 'ADD_LIST_FAILURE';
@@ -62,7 +62,7 @@ export const addList = newList => dispatch => {
       });
 }
 
-// ---
+// --- Delete actions
 
 export const DELETE_START = 'DELETE_START';
 export const DELETE_SUCCESS = 'DELETE_SUCCESS';
@@ -79,9 +79,3 @@ export const deleteList = id => dispatch => {
       console.log(err);
     });
 };
-
-// if (err.response.status === 403) {
-//     dispatch({ type: FETCH_LISTS_FAILURE, payload: err.response });
-// } else {
-//   dispatch({ type: DELETE_FAILURE, payload: err.response });
-// }

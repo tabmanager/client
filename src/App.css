@@ -5,8 +5,6 @@
     justify-content: center;
     flex-wrap: wrap;
     background-image: url('./assets/background-tabs.png');
-    /* background-image: url('./assets/background.png'); */
-    /* background-color: #2e3035 */
 }
 
 i {
@@ -14,11 +12,11 @@ i {
 }
 
 p {
-    /* font-family: 'Roboto Mono', monospace; */
+    font-family: 'Lato', sans-serif;
 }
 
 h1 {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Lato', sans-serif;
     margin-top: 130px;
     margin-left: 30px;
     margin-bottom: -190px;
@@ -26,7 +24,11 @@ h1 {
     font-weight: bold;
 }
 
+
 /* --- Login Page --- */
+/* --- Login Page --- */
+/* --- Login Page --- */
+
 
 .login-wrapper {
     display: flex;
@@ -41,12 +43,9 @@ h1 {
 
 .login-form-wrapper {
     width: 100%;
-    /* width: 500px; */
     height: 1000px;
     display: flex;
     justify-content: center;
-    /* background-image: url('./assets/background-tabs.png'); */
-    /* background-image: url('./assets/tab6.png'); */
     background-position: 50% 50%;
 }
 
@@ -56,7 +55,6 @@ h1 {
     margin-top: 120px;
     box-shadow: 10px 11px 28px 0px rgba(0,0,0,0.75);
     background-color: #ecf0f1;
-    /* background-color: #ECF0F1; */
     padding: 20px;
     padding-top: 70px;
     z-index: 1;
@@ -116,9 +114,11 @@ h1 {
  background-color: #373331
 }
 
+
 /* --- Lists --- */
 /* --- Lists --- */
 /* --- Lists --- */
+
 
 .loader {
     margin-top: 300px;
@@ -181,9 +181,11 @@ h1 {
     background-color: #512e5e
 }
 
+
 /* --- List --- */
 /* --- List --- */
 /* --- List --- */
+
 
 .cat-wrapper {
     display: flex;
@@ -201,20 +203,10 @@ h1 {
     transition: box-shadow 2s
 }
 
-
-/* .tabs:hover {
-    box-shadow: 10px 11px 42px -1px rgba(99,8,107,0.75);
-} */
-
-
 .cap {
     display: flex;
     justify-content: space-between;
-    /* background-image: url('./assets/sml-purp-logo-tt.png');
-    background-repeat: no-repeat;
-    background-position: 90% 50%; */
     background-color: #ecf0f1
-    /* background-color: RGBA(0,0,1,0.08); */
 
 }
 
@@ -242,7 +234,6 @@ h1 {
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    /* box-shadow: 0px 14px 64px -1px rgba(0,0,0,0.75); */
 }
 
   
@@ -257,7 +248,11 @@ h1 {
     background-position: 50% 50%;
 }
 
+
 /* --- Edit List --- */
+/* --- Edit List --- */
+/* --- Edit List --- */
+
 
 .tab-icon-wrapper {
     display: flex;
@@ -268,7 +263,6 @@ h1 {
 
 .tab-icon-wrapper i {
     font-size: 30px;
-    /* color: #34495e */
 }
 
 .edit-header {
@@ -279,7 +273,11 @@ h1 {
     background-color: #512e5e
 }
 
+
 /* --- Footer --- */
+/* --- Footer --- */
+/* --- Footer --- */
+
 
 footer {
     width: 100%;

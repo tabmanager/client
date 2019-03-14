@@ -5,14 +5,13 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import thunk from 'redux-thunk'
-// import logger from 'redux-logger'
 import reducer from './components/reducer/reducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import './reset.css'
 import App from './App'
 
-// ---
+// --- Store
 
 const store = createStore(
   reducer,

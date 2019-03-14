@@ -1,24 +1,15 @@
 import React from 'react'
-// import axios from 'axios'
 import {
   Card,
-  Button,
   CardHeader,
-  CardFooter,
   CardBody,
-  //   Modal,
-  //   ModalHeader,
-  //   ModalBody,
-  //   ModalFooter,
-  //   Form,
-  //   Input,
   CardTitle,
   CardText
 } from 'reactstrap'
 
 import EditList from './EditList'
 
-// ---
+// --- List component
 
 class List extends React.Component {
   constructor(props) {
@@ -57,7 +48,6 @@ class List extends React.Component {
               user_id={this.props.user_id}
             />
           </Card>
-            // { 0.1 < Math.random() && Math.random() < 0.7 ? ( <div className="tab-five"/>) : (<div />)}
           ))}
         </div>
       </div>

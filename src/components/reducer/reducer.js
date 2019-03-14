@@ -11,7 +11,7 @@ import {
   LOGIN_FAILURE
 } from '../actions/actions'
 
-//   ---
+//   --- Initial state
 
 const initialState = {
   tests: [],
@@ -23,7 +23,7 @@ const initialState = {
   user_id: localStorage.getItem('user_id')
 }
 
-// ---
+// --- Reducers
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -66,13 +66,6 @@ export const reducer = (state = initialState, action) => {
         fetchingLists: false,
         error: action.payload
       }
-    // case ADD_LIST:
-    //   if (Object.keys(state.lists).includes(action.payload.category)) {
-    //     return {
-    //       ...state,
-    //       lists: [
-    //   }
-
     case ADD_LIST:
       if (Object.keys(state.lists).includes(action.payload.category)) {
         return {

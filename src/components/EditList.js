@@ -1,23 +1,16 @@
 import React from 'react'
 import {
-  Card,
   Button,
-  CardHeader,
-  CardFooter,
-  CardBody,
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Form,
   Input,
-  CardTitle,
-  CardText
 } from 'reactstrap'
 
 import axiosWithAuth from '../axiosWithAuth'
 
-// ---
+// --- EditList component
 
 class EditList extends React.Component {
   constructor(props) {
@@ -101,13 +94,6 @@ class EditList extends React.Component {
               onChange={this.handleChange}
               className="login-input"
             />
-            {/* <Input
-              type="text"
-              name="date"
-              value={this.state.editList.date}
-              onChange={this.handleChange}
-              className="login-input"
-            /> */}
           </ModalBody>
           <ModalFooter>
             <Button
