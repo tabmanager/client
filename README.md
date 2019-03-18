@@ -51,7 +51,7 @@ After logging in, you will be taken to the main page wih a list of categories ou
 
 You can see our deployment here:
 
-https://bookrmarketing1.netlify.com/
+https://tabmanager.netlify.com/
 
 ## Built With
 * HTML
